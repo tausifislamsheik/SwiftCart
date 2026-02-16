@@ -18,6 +18,9 @@ function loadPage(page) {
     .then(res => res.text())
     .then(data => {
       document.getElementById("content").innerHTML = data;
+      if(page === 'products'){
+        loadCategory();
+      }
     });
 }
 
