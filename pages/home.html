@@ -34,6 +34,7 @@
           </p>
 
           <button
+            onclick="loadPage('products')"
             class="bg-indigo-600 hover:bg-indigo-700 transition duration-300 px-6 py-3 rounded-lg font-medium cursor-pointer"
           >
             Shop Now
@@ -46,7 +47,9 @@
       <div class="max-w-7xl mx-auto px-6 lg:px-16">
         <!-- Title -->
         <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold text-gray-900">Why Choose Us</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+            Why Choose Us
+          </h2>
           <p class="mt-4 text-gray-600">
             We provide the best shopping experience with top-notch services.
           </p>
@@ -117,6 +120,16 @@
           </div>
         </div>
       </div>
+    </section>
+    <!-- Trending Now -->
+    <section class="my-10">
+      <h2 class="text-2xl md:text-4xl font-bold mb-5 mx-10 md:mx-20">
+        Trending Now
+      </h2>
+      <div
+        id="trending-container"
+        class="grid grid-cols-1 md:grid-cols-3 gap-10 mx-5 md:mx-10 my-10"
+      ></div>
     </section>
   </body>
 </html>
