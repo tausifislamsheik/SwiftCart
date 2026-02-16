@@ -1,10 +1,37 @@
-const loadProduct = async (category) => {
+const loadProduct = async (category, Id) => {
   const res = await fetch(
-    `https://fakestoreapi.com/products/category/${category}`,
+    `https://fakestoreapi.com/products/category/${encodeURIComponent(category)}`,
   );
+
   const data = await res.json();
+
+  removeCategoryBtnActiveStatus();
+
+  const clickBtn = document.getElementById(`category-btn-${Id}`);
+  if (clickBtn) {
+    clickBtn.classList.add("bg-primary", "text-white");
+  }
+
   displayProduct(data);
 };
+
+
+
+const loadAllProducts = async () => {
+  const res = await fetch(`https://fakestoreapi.com/products`);
+  const data = await res.json();
+
+  removeCategoryBtnActiveStatus();
+
+  const clickBtn = document.getElementById("category-btn-all");
+  if (clickBtn) {
+    clickBtn.classList.add("bg-primary", "text-white");
+  }
+
+  displayProduct(data);
+};
+
+
 
 const displayProduct = (products) => {
   const productContainer = document.getElementById("product-container");
