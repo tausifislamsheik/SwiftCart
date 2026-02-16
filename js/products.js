@@ -1,4 +1,5 @@
 const loadProduct = async (category, Id) => {
+  manageSpinner(true);
   const res = await fetch(
     `https://fakestoreapi.com/products/category/${encodeURIComponent(category)}`,
   );
@@ -16,6 +17,7 @@ const loadProduct = async (category, Id) => {
 };
 
 const loadAllProducts = async () => {
+  manageSpinner(true);
   const res = await fetch(`https://fakestoreapi.com/products`);
   const data = await res.json();
 
@@ -87,6 +89,7 @@ const displayProduct = (products) => {
 
     productContainer.append(card);
   });
+  manageSpinner(false);
 };
 
 const loadProductDetails = async (id) => {
@@ -130,4 +133,16 @@ const displayProductDetails = (details) => {
   document.getElementById("modal-buy-now").onclick = () => {
     alert(`Proceeding to buy "${details.title}"`);
   };
+};
+
+// Spinner
+
+const manageSpinner = (status) => {
+  if (status) {
+    document.getElementById("spinner").classList.remove("hidden");
+    document.getElementById("product-container").classList.add("hidden");
+  } else {
+    document.getElementById("product-container").classList.remove("hidden");
+    document.getElementById("spinner").classList.add("hidden");
+  }
 };

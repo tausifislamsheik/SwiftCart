@@ -1,4 +1,5 @@
 const loadCategory = async () => {
+  manageSpinner(true);
   try {
     const res = await fetch("https://fakestoreapi.com/products/categories");
     const data = await res.json();
@@ -42,6 +43,7 @@ const displayCategory = (categories) => {
 
     categoryContainer.append(button);
   }
+  manageSpinner(false);
   loadAllProducts();
 };
 
