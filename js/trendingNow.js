@@ -5,11 +5,10 @@ const loadTrendingProducts = async () => {
   // Sort by highest rating
   const trending = data
     .sort((a, b) => b.rating.rate - a.rating.rate)
-    .slice(0, 3); 
+    .slice(0, 4);
 
   displayTrending(trending);
 };
-
 
 const displayTrending = (products) => {
   const trendingContainer = document.getElementById("trending-container");
@@ -53,7 +52,7 @@ const displayTrending = (products) => {
 
     <!-- Buttons -->
     <div class="card-actions justify-between mt-4 flex">
-      <button class="btn btn-outline flex-1 w-full btn-sm shadow-lg border-gray-300 text-gray-500 font-semibold gap-2">
+      <button onclick="loadTrendingProductDetails('${product.id}')" class="btn btn-outline flex-1 w-full btn-sm shadow-lg border-gray-300 text-gray-500 font-semibold gap-2">
         <i class="fa-regular fa-eye"></i> Details
       </button>
 
@@ -71,6 +70,54 @@ const displayTrending = (products) => {
   });
 };
 
+const loadTrendingProductDetails = async (id) => {
+  const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+  const data = await res.json();
+  displayTrendingProductDetails(data);
+};
+
+const displayTrendingProductDetails = (details) => {
+  
+  const modalContainer = document.getElementById("details-modal-container");
+  if (!modalContainer) {
+    console.error("details-modal-container not found!");
+    return;
+  }
+
+  modalContainer.innerHTML = `
+    <div id="modal-content" class="space-y-4">
+      <h2 id="modal-title" class="text-2xl font-bold">${details.title}</h2>
+      <img id="modal-image" src="${details.image}" alt="${details.title}" class="w-full max-h-80 object-contain rounded-lg" />
+      <p id="modal-description" class="text-gray-700">${details.description}</p>
+      <div class="flex justify-between items-center">
+        <p class="text-xl font-bold text-gray-900" id="modal-price">$${details.price}</p>
+        <div class="flex items-center gap-1 text-sm text-gray-600">
+          <i class="fa-solid fa-star text-yellow-400"></i> 
+          <span id="modal-rating" class="font-medium">${details.rating.rate} (${details.rating.count})</span>
+        </div>
+      </div>
+      <div class="flex gap-4 mt-4">
+        <button class="btn btn-primary flex-1" id="modal-add-to-cart">Add to Cart</button>
+        <button class="btn btn-secondary flex-1" id="modal-buy-now">Buy Now</button>
+      </div>
+    </div>
+  `;
+
+  // Show modal
+  const modal = document.getElementById("product_details_modal");
+  if (modal) {
+    modal.showModal();
+  }
+
+  
+  document.getElementById("modal-add-to-cart").onclick = () => {
+    alert(`Added "${details.title}" to cart!`);
+  };
+
+  document.getElementById("modal-buy-now").onclick = () => {
+    alert(`Proceeding to buy "${details.title}"`);
+  };
+};
+
 
 loadTrendingProducts();
-

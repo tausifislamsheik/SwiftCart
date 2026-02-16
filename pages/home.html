@@ -128,8 +128,23 @@
       </h2>
       <div
         id="trending-container"
-        class="grid grid-cols-1 md:grid-cols-3 gap-10 mx-5 md:mx-10 my-10"
+        class="grid grid-cols-1 md:grid-cols-4 gap-10 mx-5 md:mx-10 my-10"
       ></div>
     </section>
+    <!-- Modal -->
+    <dialog
+      id="product_details_modal"
+      class="modal modal-bottom sm:modal-middle"
+    >
+      <div class="modal-box">
+        <div id="details-modal-container"></div>
+
+        <div class="modal-action">
+          <form method="dialog">
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
   </body>
 </html>
