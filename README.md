@@ -87,12 +87,12 @@ numbers.forEach(num => {
 
 ## 🚀 Why async/await is Important?
 
-- 🔹 Promise এর উপর ভিত্তি করে কাজ করে  
-- 🔹 Asynchronous code কে synchronous এর মতো readable করে  
-- 🔹 `.then()` chaining কমিয়ে code clean ও maintainable করে  
-- 🔹 `try...catch` দিয়ে সহজে error handle করা যায়  
-- 🔹 Multiple API call sequentialভাবে manage করা সহজ হয়  
-- 🔹 বড় project এ এটি best practice হিসেবে ব্যবহার করা হয়  
+🔰 Promise এর উপর ভিত্তি করে কাজ করে  
+🔰 Asynchronous code কে synchronous এর মতো readable করে  
+🔰 `.then()` chaining কমিয়ে code clean ও maintainable করে  
+🔰 `try...catch` দিয়ে সহজে error handle করা যায়  
+🔰 Multiple API call sequentialভাবে manage করা সহজ হয়  
+🔰 বড় project এ এটি best practice হিসেবে ব্যবহার করা হয়  
 
 ---
 
