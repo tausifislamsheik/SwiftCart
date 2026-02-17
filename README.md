@@ -80,20 +80,42 @@ numbers.forEach(num => {
 
 ## 4) What is the significance of `async/await` in fetching API data?
 
-`async/await` asynchronous code সহজ ও readable করে।
+`async/await` হলো JavaScript-এ asynchronous operation handle করার একটি modern ও clean পদ্ধতি।  
+এটি Promise এর উপর ভিত্তি করে কাজ করে।
+
+---
+
+## 🚀 Why async/await is Important?
+
+- 🔹 Promise এর উপর ভিত্তি করে কাজ করে  
+- 🔹 Asynchronous code কে synchronous এর মতো readable করে  
+- 🔹 `.then()` chaining কমিয়ে code clean ও maintainable করে  
+- 🔹 `try...catch` দিয়ে সহজে error handle করা যায়  
+- 🔹 Multiple API call sequentialভাবে manage করা সহজ হয়  
+- 🔹 বড় project এ এটি best practice হিসেবে ব্যবহার করা হয়  
+
+---
+
+## 🧠 Example
 
 ```js
 async function getData() {
-  const res = await fetch("https://api.example.com");
-  const data = await res.json();
-  console.log(data);
+  try {
+    const response = await fetch("https://api.example.com");
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log("Error:", error);
+  }
 }
 ```
 
-### ⚡ সুবিধা
-- Code clean হয়  
-- `.then()` কম লাগে  
-- Error handle করা সহজ (try...catch)
+---
+
+## ⚡ Conclusion
+
+`async/await` ব্যবহার করলে code আরও পরিষ্কার, সহজ এবং professional হয়।  
+API based application তৈরির ক্ষেত্রে এটি অত্যন্ত গুরুত্বপূর্ণ।
 
 ---
 
