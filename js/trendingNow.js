@@ -77,7 +77,6 @@ const loadTrendingProductDetails = async (id) => {
 };
 
 const displayTrendingProductDetails = (details) => {
-  
   const modalContainer = document.getElementById("details-modal-container");
   if (!modalContainer) {
     console.error("details-modal-container not found!");
@@ -109,7 +108,6 @@ const displayTrendingProductDetails = (details) => {
     modal.showModal();
   }
 
-  
   document.getElementById("modal-add-to-cart").onclick = () => {
     alert(`Added "${details.title}" to cart!`);
   };
